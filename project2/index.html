@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>India Map</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="total">
+        <div class="first">
+          <img src="india.jpeg" alt="India Map" id="indiaMap" />
+
+          <!-- Clickable points on India Map -->
+          <div
+            class="point"
+            style="top: 30%; left: 40%"
+            onclick="updateState('Maharashtra', 'maha.jpg', 'Maharashtra is famous for Mumbai.')"
+          ></div>
+          <div
+            class="point"
+            style="top: 50%; left: 60%"
+            onclick="updateState('Karnataka', 'kar.jpg', 'Karnataka is famous for Bengaluru.')"
+          ></div>
+          <div
+            class="point"
+            style="top: 20%; left: 50%"
+            onclick="updateState('Delhi', 'delhi.jpg', 'Delhi, the capital of India.')"
+          ></div>
+          <div
+            class="point"
+            style="top: 70%; left: 45%"
+            onclick="updateState('Tamil Nadu', 'tn.jpg', 'Tamil Nadu is known for temples.')"
+          ></div>
+          <div
+            class="point"
+            style="top: 40%; left: 70%"
+            onclick="updateState('West Bengal', 'wb.jpg', 'West Bengal is famous for Kolkata.')"
+          ></div>
+        </div>
+
+        <div class="second">
+          <h3>State Details</h3>
+          <p id="stateDetails">Click on a point to see details.</p>
+        </div>
+      </div>
+
+      <div class="third">
+        <h3>tourist places</h3>
+        <div id="stateImages">Click on a point to see images.</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

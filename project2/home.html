@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Bot</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: 30% 30%;
+        justify-content: space-around;
+        height: 700px;
+      }
+      .client {
+        background-color: #99e9f2;
+        padding: 10px;
+        /* overflow-y: auto; */
+      }
+      .server {
+        background-color: #adb5bd;
+        padding: 10px;
+        /* overflow-y: auto; */
+      }
+      .f {
+        border: 3px solid black;
+      }
+      h3 {
+        text-align: center;
+        background-color: #adb5bd;
+        border: 2px black solid;
+      }
+      #h3 {
+        background-color: #99e9f2;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      button {
+        padding: 10px;
+        margin-top: 10px;
+        width: 100%;
+        background-color: #3498db;
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container f">
+      <div class="client">
+        <h3>Chat Box (Client Side)</h3>
+        <div id="chatBox"></div>
+        <!-- This is where messages will appear -->
+      </div>
+
+      <div class="server f">
+        <h3 id="h3">Chat Bot (Server Side)</h3>
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Type your message here..."
+        />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <script>
+      // Predefined responses for the bot
+      const responses = {
+        hello: "Hi! How can I assist you today?",
+        "how are you": "I'm doing great, thank you for asking!",
+        "what is your name": "I'm a chatbot created to assist you!",
+        bye: "Goodbye! Have a great day!",
+        help: "Sure! How can I help you? Ask me anything.",
+        "what you can do":
+          "i can destroy human brains and make student lazy i can help students in cheating exams without me students face too many difficulties",
+      };
+
+      function sendMessage() {
+        // Get the user input
+        const userInput = document
+          .getElementById("userInput")
+          .value.trim()
+          .toLowerCase();
+
+        // If input is not empty, proceed
+        if (userInput !== "") {
+          // Display the user's message in the chat box
+          const chatBox = document.getElementById("chatBox");
+          const userMessage = document.createElement("p");
+          userMessage.textContent =
+            "You: " + document.getElementById("userInput").value;
+          chatBox.appendChild(userMessage);
+
+          // Check if the user input matches a predefined question and get the bot response
+          const botResponse =
+            responses[userInput] || "Sorry, I don't understand that.";
+
+          // Display the bot's response in the chat box
+          const botMessage = document.createElement("p");
+          botMessage.textContent = "Bot: " + botResponse;
+          chatBox.appendChild(botMessage);
+
+          // Scroll to the bottom of the chat box
+          chatBox.scrollTop = chatBox.scrollHeight;
+
+          // Clear the input field
+          document.getElementById("userInput").value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
